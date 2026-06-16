@@ -22,10 +22,10 @@ jobs:
       if: matrix.os == 'ubuntu-22.04'
       run: sudo dnf -y install cmake gcc lld which flex bison clang clang-tools-extra git
 
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v6.0.3
       with:
         submodules: recursive
-    - uses: egorpugin/sw-action@master
+    - uses: egorpugin/sw-action@1.0.2
 
     - name: build
       if: github.event_name != 'pull_request' && (matrix.os == 'windows-2022')
@@ -74,14 +74,14 @@ jobs:
 
     - name: Upload Unit Test Results
       if: always() && matrix.os != 'windows-2022'
-      uses: actions/upload-artifact@v7
+      uses: actions/upload-artifact@v7.0.1
       with:
         name: Test Results (${{ matrix.os }})
         path: .sw/test/results.xml
 
     - name: Publish Test Report
       if: always() && matrix.os != 'windows-2022'
-      uses: mikepenz/action-junit-report@v6
+      uses: mikepenz/action-junit-report@v6.4.1
       with:
         check_name: test (${{ matrix.os }})
         report_paths: .sw/test/results.xml

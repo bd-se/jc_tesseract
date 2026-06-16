@@ -21,7 +21,7 @@ jobs:
           - { name: ubuntu-22.04-gcc-11-autotools, os: ubuntu-22.04, cxx: g++-11 } #installed
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v6.0.3
       with:
         submodules: recursive
 
@@ -68,7 +68,7 @@ jobs:
 
     - name: Upload documentation artifacts
       if: matrix.config.docs
-      uses: actions/upload-artifact@v7
+      uses: actions/upload-artifact@v7.0.1
       with:
         name: tesseract-docs
         path: |

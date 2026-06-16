@@ -24,10 +24,10 @@ jobs:
     name: cmake-win64
     runs-on: windows-latest
     steps:
-      - uses: ilammy/setup-nasm@v1
+      - uses: ilammy/setup-nasm@v1.5.2
       - uses: microsoft/setup-msbuild@v3
       - name: "Checkout ${{ github.ref }} ( ${{ github.sha }} )"
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.3
         with:
           submodules: recursive
       - run: git fetch --prune --unshallow --tags
@@ -116,7 +116,7 @@ jobs:
              cmake --build build --target install
 
       - name: Upload Build Results
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: tesseract-${{ steps.get_version.outputs.version }}-${{steps.get_version.outputs.stamp}}-VS2019_win64
           path: ${{env.ILOC}}
