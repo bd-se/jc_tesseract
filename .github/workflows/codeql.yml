@@ -92,6 +92,8 @@ jobs:
       if: matrix.build-mode == 'manual'
       shell: bash
       run: |
+            ./autogen.sh
+            ./configure --prefix=$HOME/local/
             echo 'JC Done Config'
             make
     - name: Perform CodeQL Analysis
