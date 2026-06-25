@@ -44,7 +44,7 @@ jobs:
       matrix:
         include:
         - language: actions
-          build-mode: none
+          build-mode: javascript-typescript
         - language: c-cpp
           build-mode: none
         - language: java-kotlin
